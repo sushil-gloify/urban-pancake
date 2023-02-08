@@ -4,24 +4,20 @@ phases:
   pre_build:
     commands:
       #installs dependencies into the node_modules/ directory
-      #- npm install
-      #  build:
+      - npm install
+  build:
     commands:
       - echo Build started on `date`
       - echo Compiling
-      # - npm run build
+      - npm run build
   post_build:
     commands:
       - echo Build completed on `date`
 # Include only the files required for your application to run.
-  artifacts:
-    files:
-      - .vscode/*
-      - basic/*
-      - script/*
-
-
-#files:
-#  - source: ./*
-#    destination: /var/www/html/
-
+artifacts:
+  files:
+    - public/**/*
+    - src/**/*
+    - appspec.yml
+    - scripts/**/*
+    - basic/**/
