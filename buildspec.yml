@@ -4,12 +4,12 @@ phases:
   pre_build:
     commands:
       #installs dependencies into the node_modules/ directory
-      - npm install
+#      - npm install
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling
-      - npm run build
+#      - npm run build
   post_build:
     commands:
       - echo Build completed on `date`
