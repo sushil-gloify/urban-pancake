@@ -1,0 +1,60 @@
+CREATE TABLE `tbl_airlines` (
+  `airline_id` int(11) NOT NULL AUTO_INCREMENT,
+  `airline_name` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT '0' COMMENT '0 -Inactive 1-active',
+  `created_on` datetime DEFAULT NULL,
+  `modified_on` datetime DEFAULT NULL,
+  `airline_logo` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`airline_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1
+
+
+
+ALTER TABLE `carter_db`.`tbl_thirdparty_corporate` 
+ADD COLUMN `airline_id` INT NOT NULL AFTER fk_corporate_id
+
+ALTER TABLE `carter_db`.`tbl_thirdparty_corporate` 
+CHANGE COLUMN `airline_id` `airline_id` INT(11) NULL DEFAULT 0 ;
+
+--help reated table---
+
+CREATE TABLE `carter_db`.`tbl_tickets_topic` (
+  `topic_id` INT NOT NULL AUTO_INCREMENT,
+  `topic_name` VARCHAR(45) NULL,
+  `status` INT NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`topic_id`));
+
+
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+CHANGE COLUMN `topic_name` `topic_name` INT(11) NOT NULL ,
+CHANGE COLUMN `assistant_id` `assistant_id` INT(11) NULL ;
+
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+ADD COLUMN `ticket_number` VARCHAR(555) NULL AFTER `created_date`;
+
+INSERT INTO `carter_db`.`tbl_employee_role` (`id_employee_role`, `role`, `status`) VALUES ('21', 'Help Assistance', '1');
+
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+ADD COLUMN `customer_id` INT NULL AFTER `ticket_number`;
+ALTER TABLE `carter_db`.`tbl_ticket_history` 
+ADD COLUMN `customer_id` INT(11) NULL AFTER `created_date`;
+
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+CHANGE COLUMN `status` `status` VARCHAR(550) NULL DEFAULT 'pendding' ;
+
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+CHANGE COLUMN `parent_id` `parent_id` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `topic_name` `topic_name` INT(11) NULL ;
+ALTER TABLE `carter_db`.`tbl_help_tracking` 
+CHANGE COLUMN `order_id` `order_id` INT(11) NULL ;
+
+
+ALTER TABLE `carter_db`.`tbl_ticket_history` 
+CHANGE COLUMN `ticket_id` `ticket_id` INT(11) NULL ,
+CHANGE COLUMN `assistant_id` `assistant_id` INT(11) NULL ,
+CHANGE COLUMN `role_id` `role_id` INT(11) NULL ,
+CHANGE COLUMN `log_description` `log_description` VARCHAR(300) NULL ;
+
+
