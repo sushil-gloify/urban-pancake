@@ -14,8 +14,13 @@ phases:
     commands:
       - echo Build completed on `date`
 # Include only the files required for your application to run.
-artifacts:
-  files:
-    - .vscode/
-    - basic/
-    - script/
+#artifacts:
+#  files:
+#    - .vscode/*
+#    - basic/*
+#    - script/*
+
+
+files:
+  - source: ./*
+    destination: /var/www/html/
