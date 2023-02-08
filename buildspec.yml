@@ -18,6 +18,6 @@ artifacts:
   files:
     - public/**/*
     - src/**/*
-    - appspec.yml
+#    - appspec.yml
     - scripts/**/*
-    - basic/**/
+#    - basic/**/
