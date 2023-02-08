@@ -19,5 +19,5 @@ artifacts:
     - public/**/*
     - src/**/*
 #    - appspec.yml
-    - scripts/**/*
+    - scripts/
 #    - basic/**/
