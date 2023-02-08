@@ -4,7 +4,7 @@ os: linux
 
 files:
   - source: /
-    destination: /var/www/html/
+    destination: /home/ubuntu/new-trial
 
 permissions:
   - object: /
